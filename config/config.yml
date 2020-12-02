@@ -1,0 +1,39 @@
+
+main_source_url: https://kolonial.no/
+main_url_collection_needed: True
+
+main_urls_to_scrap:
+  container_tag_name: div
+  container_tag_attr_name: id
+  container_tag_attr_value: navbar-category-sidebar
+  tag_name_to_search: a
+  tag_attr_to_search: href
+  tag_attr_value_pattern: kategorier
+  has_sub_container: False
+
+product_sub_url_coll_needed: True
+sub_source_url_beginning: https://kolonial.no
+
+product_sub_urls_to_scrap:
+  container_tag_name: div
+  container_tag_attr_name: id
+  container_tag_attr_value: navbar-category-sidebar
+  tag_name_to_search: a
+  tag_attr_to_search: href
+  tag_filter_attr_name: class
+  tag_filter_attr_value: filter-option
+  has_sub_container: False
+
+product_scraping:
+  container_tag_name: div
+  container_tag_attr_name: class
+  container_tag_attr_value: row
+  has_sub_container: True
+  sub_container_tag_name: div
+  sub_container_tag_attr_name: class
+  sub_container_tag_attr_value: product-list-item
+  product_information: { 'product_name': {'tag_name': 'div', 'attr_name': 'class', 'attr_value': 'name-main wrap-two-lines'},
+                         'price':        {'tag_name': 'p',   'attr_name': 'class', 'attr_value': 'price label label-price'},
+                         'unit_price':   {'tag_name': 'p',   'attr_name': 'class', 'attr_value': 'unit-price'},
+                         'extra_info':   {'tag_name': 'div', 'attr_name': 'class', 'attr_value': 'name-extra wrap-one-line'}
+                       }
